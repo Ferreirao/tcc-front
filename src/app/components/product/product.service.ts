@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Observable } from 'rxjs';
-import { Product } from './product.model';
+
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +21,11 @@ export class ProductService {
     })
   }
 
-  create(product: Product): Observable<Product>{
-   return this.http.post<Product>(this.apiUrl, product)
+  create(nome, endereco, telefone, email, tipo, descricao) {
+    return this.http.post(`${this.apiUrl}product`, { 'nome': nome, 'endereco': endereco, 'telefone': telefone, 'email': email, 'tipo': tipo, 'descricao': descricao, 'user_id': 1 })
+  }
+
+  list(){
+    return this.http.get<any[]>(`${this.apiUrl}products`)
   }
 }

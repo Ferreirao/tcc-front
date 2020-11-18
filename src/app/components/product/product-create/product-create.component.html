@@ -3,37 +3,37 @@
     <form >
         <mat-form-field>
             <input matInput placeholder="rua barão de mesquita"
-             [(ngModel)]="product.endereco" name="endereco"
+             [(ngModel)]="endereco" name="endereco"
             >
         </mat-form-field>
         <mat-form-field>
             <input matInput placeholder="Vicente Almeida"  
-            [(ngModel)]="product.nome" name="nome"
+            [(ngModel)]="nome" name="nome"
             >
         </mat-form-field>
         <mat-form-field>
             <input matInput placeholder="21999999999"  
-            [(ngModel)]="product.telefone" name="telefone"
+            [(ngModel)]="telefone" name="telefone"
             >
         </mat-form-field>
         <mat-form-field>
             <input matInput placeholder="vicente@hotmail.com" 
-            [(ngModel)]="product.email"  name="email"
+            [(ngModel)]="email"  name="email"
             >
         </mat-form-field>
         <mat-form-field>
             <input matInput placeholder="ex: vidro, metal..." 
-            [(ngModel)]="product.tipo" name="tipo"
+            [(ngModel)]="tipo" name="tipo"
             >
         </mat-form-field>
         <mat-form-field>
             <input matInput placeholder="ex: quantidade..."  
-            [(ngModel)]="product.descricao" name="descricao"
+            [(ngModel)]="descricao" name="descricao"
             >
         </mat-form-field>
     </form>
 
-    <button mat-raised-button (click)="createProduct()" color="primary">
+    <button mat-raised-button (click)="createProducts()" color="primary">
         Salvar
     </button>
 
