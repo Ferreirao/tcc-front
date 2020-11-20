@@ -1,26 +1,33 @@
-<button mat-raised-button (click)="navigateToProductCreate()">
-    Novo Produto
-</button>
+<mat-card class="table">
+    <mat-card-title>Lista de Recicláveis</mat-card-title>
+    <mat-card-subtitle class="subtitle">
+        Aqui você consegue filtrar os produtos recicláveis cadastrados
+    </mat-card-subtitle><br>
 
-<table style="width: 100%;margin-top: 20px;">
+<button mat-raised-button color="primary" (click)="navigateToProductCreate()">
+    Novo Reciclável
+</button>
+<table  style="width: 100%;margin-top: 20px;">
 <thead>
     <tr>
-        <th>nome</th>
-        <th>descricao</th>
-        <th>endereco</th>
-        <th>telefone</th>
-        <th>email</th>
-        <th>tipo</th>
+        <th>Nome</th>
+        <th>Endereço</th>
+        <th>E-mail</th>
+        <th>Telefone</th>
+        <th>Tipo</th>
+        <th>Descrição</th>
     </tr>
 </thead>
 <tbody>
     <tr *ngFor="let product of dataProdutos" style="text-align: center;">
         <td>{{product.nome}}</td>
-        <td>{{product.descricao}}</td>
-        <td>{{product.tipo}}</td>
         <td>{{product.endereco}}</td>
         <td>{{product.email}}</td>
         <td>{{product.telefone}}</td>
+        <td>{{product.tipo}}</td>
+        <td>{{product.descricao }}</td>
     </tr>
 </tbody>
 </table>
+
+</mat-card>
