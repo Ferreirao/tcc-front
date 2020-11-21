@@ -10,7 +10,7 @@
             </a>
             <a mat-list-item  routerLink="/login" *ngIf="!storage.getItem('token')">
                 <i class="material-icons">
-                    account_box
+                    login
                 </i>
                 Login
             </a>
@@ -22,7 +22,7 @@
             </a>
             <a mat-list-item *ngIf="storage.getItem('token')" (click)="storage.clear()">
                 <i class="material-icons">
-                    account_box
+                    highlight_off
                 </i>
                 Deslogar
             </a>
