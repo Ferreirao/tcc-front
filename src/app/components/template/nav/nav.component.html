@@ -8,7 +8,7 @@
                 </i>
                 Início
             </a>
-            <a mat-list-item  routerLink="/login">
+            <a mat-list-item  routerLink="/login" *ngIf="!storage.getItem('token')">
                 <i class="material-icons">
                     account_box
                 </i>
@@ -19,6 +19,12 @@
                     storefront
                 </i>
                 Reciclável
+            </a>
+            <a mat-list-item *ngIf="storage.getItem('token')" (click)="storage.clear()">
+                <i class="material-icons">
+                    account_box
+                </i>
+                Deslogar
             </a>
         </mat-nav-list>
     </mat-sidenav>

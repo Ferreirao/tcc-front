@@ -1,3 +1,4 @@
+import { LocalizedString } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CreateuserService } from '../createuser/createuser.service';
@@ -20,8 +21,13 @@ export class LoginComponent implements OnInit {
 
   loginUser(): void {
 
-    this.login.login(this.email, this.password).subscribe(() => {
+    this.login.login(this.email, this.password).subscribe((data: any) => {
       this.login.showMessage('operação executada com sucesso');
+
+      // AQUI GUARDA NO NAVEGADOR OS DADOS DO USUARIO
+      localStorage.setItem('data', JSON.stringify(data));
+      localStorage.setItem('token', data.token);
+      
       this.router.navigate(['/products']);
     })
 

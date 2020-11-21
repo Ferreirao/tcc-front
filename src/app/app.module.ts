@@ -28,6 +28,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { LoginComponent } from './views/login/login.component';
 import { CreateuserComponent } from './views/createuser/createuser.component';
+import {MatTableModule} from '@angular/material/table';
 
 
 @NgModule({
@@ -57,7 +58,8 @@ import { CreateuserComponent } from './views/createuser/createuser.component';
     HttpClientModule,
     FormsModule,
     MatFormFieldModule,
-    MatInputModule
+    MatInputModule,
+    MatTableModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

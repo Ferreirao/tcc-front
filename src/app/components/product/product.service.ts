@@ -22,10 +22,16 @@ export class ProductService {
   }
 
   create(nome, endereco, telefone, email, tipo, descricao) {
-    return this.http.post(`${this.apiUrl}product`, { 'nome': nome, 'endereco': endereco, 'telefone': telefone, 'email': email, 'tipo': tipo, 'descricao': descricao, 'user_id': 1 })
+    return this.http.post(`${this.apiUrl}product`, { 'nome': nome, 'endereco': endereco, 'telefone': telefone, 'email': email, 'tipo': tipo, 'descricao': descricao, 'user_id': this.getUserId() })
   }
 
   list(){
     return this.http.get<any[]>(`${this.apiUrl}products`)
+  }
+
+  getUserId() {
+    const data = JSON.parse(localStorage.getItem('data'));
+
+    return data.id;
   }
 }

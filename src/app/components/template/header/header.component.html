@@ -4,12 +4,13 @@
             <img src="../../../../assets/recylife2.png" width="70" height="70" alt="logo">
         </a>
     </span>
-    <span class="title-group">
+    <span class="title-group align-name">
         <a >
             <i class="material-icons">
                 home
             </i>
             Início
         </a>
+        <h4 *ngIf="storage.getItem('data')">Olá, {{ getUser() }}</h4>
     </span>
 </mat-toolbar>

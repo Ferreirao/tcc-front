@@ -4,30 +4,50 @@
         Aqui você consegue filtrar os produtos recicláveis cadastrados
     </mat-card-subtitle><br>
 
-<button mat-raised-button color="primary" (click)="navigateToProductCreate()">
+<button class="btn" mat-raised-button color="primary" (click)="navigateToProductCreate()" *ngIf="storage.getItem('token')">
     Novo Reciclável
 </button>
-<table  style="width: 100%;margin-top: 20px;">
-<thead>
-    <tr>
-        <th>Nome</th>
-        <th>Endereço</th>
-        <th>E-mail</th>
-        <th>Telefone</th>
-        <th>Tipo</th>
-        <th>Descrição</th>
-    </tr>
-</thead>
-<tbody>
-    <tr *ngFor="let product of dataProdutos" style="text-align: center;">
-        <td>{{product.nome}}</td>
-        <td>{{product.endereco}}</td>
-        <td>{{product.email}}</td>
-        <td>{{product.telefone}}</td>
-        <td>{{product.tipo}}</td>
-        <td>{{product.descricao }}</td>
-    </tr>
-</tbody>
-</table>
+<table *ngIf="dataProdutos && dataProdutos.length > 0" mat-table [dataSource]="dataProdutos" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+          The actual rendered columns are set as a property on the row definition" -->
+  
+    <!-- Position Column -->
+    <ng-container matColumnDef="nome">
+      <th mat-header-cell *matHeaderCellDef> nome </th>
+      <td mat-cell *matCellDef="let element"> {{element.nome}} </td>
+    </ng-container>
+  
+    <!-- Name Column -->
+    <ng-container matColumnDef="endereco">
+      <th mat-header-cell *matHeaderCellDef> endereco </th>
+      <td mat-cell *matCellDef="let element"> {{element.endereco}} </td>
+    </ng-container>
+  
+    <!-- Weight Column -->
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef> email </th>
+      <td mat-cell *matCellDef="let element"> {{element.email}} </td>
+    </ng-container>
+  
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="telefone">
+      <th mat-header-cell *matHeaderCellDef> telefone </th>
+      <td mat-cell *matCellDef="let element"> {{element.telefone}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="tipo" [style.width.px]="300">
+        <th mat-header-cell *matHeaderCellDef> tipo </th>
+        <td mat-cell *matCellDef="let element"> {{element.tipo}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="descricao">
+        <th mat-header-cell *matHeaderCellDef> descricao </th>
+        <td mat-cell *matCellDef="let element"> {{element.descricao}} </td>
+      </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
 
 </mat-card>

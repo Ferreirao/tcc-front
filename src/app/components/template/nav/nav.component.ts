@@ -9,6 +9,8 @@ export class NavComponent implements OnInit {
 
   constructor() { }
 
+  storage = localStorage;
+
   ngOnInit(): void {
   }
 
